@@ -1,10 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Mapogee
 {
     public class LayerCollection
     {
-        readonly List<ILayer> _layers = new List<ILayer>();
+        private readonly List<ILayer> _layers = new List<ILayer>();
+
+        public event EventHandler< LayerRemoved;
+        public event EventHandler<EventArgs> LayerAdded;
+        public event EventHandler<EventArgs> LayerMoved;
 
         public void Add(ILayer layer)
         {

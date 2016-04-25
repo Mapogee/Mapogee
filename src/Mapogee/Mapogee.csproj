@@ -37,6 +37,7 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventArgs.cs" />
     <Compile Include="ILayer.cs" />
     <Compile Include="LayerCollection.cs" />
     <Compile Include="Map.cs" />
