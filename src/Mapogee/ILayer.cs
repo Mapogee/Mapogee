@@ -1,7 +1,6 @@
 ﻿namespace Mapogee
 {
-    public class Map
+    public interface ILayer
     {
-        
     }
 }
