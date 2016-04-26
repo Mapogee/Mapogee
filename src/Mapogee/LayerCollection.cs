@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Mapogee
 {
-    public class LayerCollection
+    public class LayerCollection : ICollection<ILayer>
     {
         private readonly List<ILayer> _layers = new List<ILayer>();
 
@@ -15,6 +16,29 @@ namespace Mapogee
             _layers.Add(layer);
             OnLayerAdded(layer);
         }
+
+        public void Clear()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Contains(ILayer item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CopyTo(ILayer[] array, int arrayIndex)
+        {
+            throw new NotImplementedException();
+        }
+
+        bool ICollection<ILayer>.Remove(ILayer item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Count { get; }
+        public bool IsReadOnly { get; }
 
         public void Remove(ILayer layer)
         {
@@ -32,6 +56,16 @@ namespace Mapogee
         {
             var handler = LayerAdded;
             handler?.Invoke(this, new EventArgs<ILayer>(layer));
+        }
+
+        public IEnumerator<ILayer> GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }
