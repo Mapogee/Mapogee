@@ -6,7 +6,7 @@ namespace Mapogee
 {
     public class LayerCollection : ICollection<ILayer>
     {
-        private readonly List<ILayer> _layers = new List<ILayer>();
+        private readonly IList<ILayer> _layers = new List<ILayer>();
 
         public event EventHandler<EventArgs<ILayer>> LayerRemoved;
         public event EventHandler<EventArgs<ILayer>> LayerAdded;
@@ -19,26 +19,27 @@ namespace Mapogee
 
         public void Clear()
         {
-            throw new NotImplementedException();
+            _layers.Clear();
         }
 
         public bool Contains(ILayer item)
         {
-            throw new NotImplementedException();
+            return _layers.Contains(item);
         }
 
         public void CopyTo(ILayer[] array, int arrayIndex)
         {
-            throw new NotImplementedException();
+            _layers.CopyTo(array, arrayIndex);
         }
 
         bool ICollection<ILayer>.Remove(ILayer item)
         {
-            throw new NotImplementedException();
+            return _layers.Remove(item);
         }
 
-        public int Count { get; }
-        public bool IsReadOnly { get; }
+        public int Count => _layers.Count;
+
+        public bool IsReadOnly => _layers.IsReadOnly;
 
         public void Remove(ILayer layer)
         {
@@ -60,7 +61,7 @@ namespace Mapogee
 
         public IEnumerator<ILayer> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return _layers.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
