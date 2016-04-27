@@ -42,23 +42,32 @@ namespace Mapogee.Tests
         }
 
         [Test]
-        public void TestIterator()
+        public void TestCollectionImplementation()
         {
             // arrange
             var layerCollection = new LayerCollection();
-            layerCollection.Add(new Layer());
-            layerCollection.Add(new Layer());
+            var layer1 = new Layer();
+            var layer2 = new Layer();
+            layerCollection.Add(layer1);
+            layerCollection.Add(layer2);
             var counter = 0;
 
             // act
             foreach (var layer in layerCollection)
             {
                 if (layer != null) counter++;
-            } 
+            }
+            var array = new ILayer[layerCollection.Count];
+            layerCollection.CopyTo(array, 0);
+
+            var contains = layerCollection.Contains(layer1);
+            layerCollection.Clear();
+
 
             // assert
-            Assert.AreEqual(counter, layerCollection.Count);
+            Assert.AreEqual(counter, 2); // GetIterator
+            Assert.AreEqual(layerCollection.Count, 0); // Clear
+            Assert.AreEqual(array.Length, 2); // CopyTo
         }
-
     }
 }
