@@ -10,7 +10,7 @@ namespace Mapogee.Tests
         {
             // arrange
             var layerCollection = new LayerCollection();
-            var layer = new BaseLayer();
+            var layer = new Layer();
             ILayer addedLayer = null;
             layerCollection.LayerAdded += (sender, args) => addedLayer = args.Value;
             
@@ -29,7 +29,7 @@ namespace Mapogee.Tests
             // arrange
             var layerCollection = new LayerCollection();
             ILayer notifiedLayer = null;
-            var layer = new BaseLayer();
+            var layer = new Layer();
             layerCollection.Add(layer);
             layerCollection.LayerRemoved += (sender, args) => notifiedLayer = args.Value;
 
@@ -46,8 +46,8 @@ namespace Mapogee.Tests
         {
             // arrange
             var layerCollection = new LayerCollection();
-            layerCollection.Add(new BaseLayer());
-            layerCollection.Add(new BaseLayer());
+            layerCollection.Add(new Layer());
+            layerCollection.Add(new Layer());
             var counter = 0;
 
             // act

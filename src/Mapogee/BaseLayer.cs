@@ -1,6 +1,6 @@
 ﻿namespace Mapogee
 {
-    public class BaseLayer : ILayer
+    public abstract class BaseLayer : ILayer
     {
     }
 }

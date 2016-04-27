@@ -37,6 +37,7 @@
     <Compile Include="BaseLayer.cs" />
     <Compile Include="EventArgs.cs" />
     <Compile Include="ILayer.cs" />
+    <Compile Include="Layer.cs" />
     <Compile Include="LayerCollection.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
