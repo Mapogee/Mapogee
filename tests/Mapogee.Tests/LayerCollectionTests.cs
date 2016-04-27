@@ -41,5 +41,24 @@ namespace Mapogee.Tests
             Assert.AreEqual(notifiedLayer, layer);
         }
 
+        [Test]
+        public void TestIterator()
+        {
+            // arrange
+            var layerCollection = new LayerCollection();
+            layerCollection.Add(new BaseLayer());
+            layerCollection.Add(new BaseLayer());
+            var counter = 0;
+
+            // act
+            foreach (var layer in layerCollection)
+            {
+                if (layer != null) counter++;
+            } 
+
+            // assert
+            Assert.AreEqual(counter, layerCollection.Count);
+        }
+
     }
 }

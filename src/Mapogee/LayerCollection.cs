@@ -22,9 +22,9 @@ namespace Mapogee
             _layers.Clear();
         }
 
-        public bool Contains(ILayer item)
+        public bool Contains(ILayer remove)
         {
-            return _layers.Contains(item);
+            return _layers.Contains(remove);
         }
 
         public void CopyTo(ILayer[] array, int arrayIndex)
@@ -32,9 +32,9 @@ namespace Mapogee
             _layers.CopyTo(array, arrayIndex);
         }
 
-        bool ICollection<ILayer>.Remove(ILayer item)
+        bool ICollection<ILayer>.Remove(ILayer layer)
         {
-            return _layers.Remove(item);
+            return _layers.Remove(layer);
         }
 
         public int Count => _layers.Count;
